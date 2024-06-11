@@ -4,7 +4,7 @@ import iconChat from './icon-chat.webp'
 import iconMoney from './icon-money.webp'
 import iconSecurity from './icon-security.webp'
 
-const Feature = ({ icon, title, children }) => {
+function Feature({ icon, title, children }) {
     return (
         <div className="feature-item">
             <img src={icon} alt="Feature Icon" className="feature-icon" />
@@ -14,7 +14,7 @@ const Feature = ({ icon, title, children }) => {
     );
 };
 
-const Features = () => {
+function Features() {
     return (
         <section className="features">
             <h2 className="sr-only">Features</h2>

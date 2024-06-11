@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import './Header.scss';
 
-const Header = () => {
+function Header() {
     return (
         <nav className="main-nav">
             <Link className="main-nav-logo" to="/">

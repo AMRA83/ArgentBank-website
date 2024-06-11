@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Banner from '../../components/Banner/Banner';
-import Features from '../../components/Feature/Feature';
+import Banner from '../../components/Banner/Banner.js';
+import Features from '../../components/Feature/Feature.js';
 
 
-const Home = () => {
+function Home() {
     return (
 
         <main>

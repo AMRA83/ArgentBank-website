@@ -1,16 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from "./components/Header/Header"
-import Home from "./pages/Home/Home";
-import SignIn from "./pages/SignIn/SignIn";
-import User from "./pages/User/User"
-import Footer from "./components/Footer/Footer"
+import { Routes, Route } from 'react-router-dom';
+import Header from "./components/Header/Header.js"
+import Home from "./pages/Home/Home.js";
+import SignIn from "./pages/SignIn/SignIn.js";
+import User from "./pages/User/User.js"
+import Footer from "./components/Footer/Footer.js"
 import './App.scss';
 
 function App() {
   return (
-    <Router>
-
+    <>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -18,9 +17,8 @@ function App() {
         <Route path="/user" element={<User />} />
       </Routes>
       <Footer />
+    </>
 
-
-    </Router>
   );
 }
 export default App;

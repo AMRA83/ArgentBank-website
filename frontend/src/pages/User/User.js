@@ -1,7 +1,8 @@
 import Accounts from "../../data/account.json";// tableau Json
 import Account from "../../components/Account/Account";//Composant
 import Button from "../../components/Button/Button";//Composant
-const User = () => {
+
+function User() {
 
     return (
         <main className="main bg-dark2">
@@ -10,12 +11,12 @@ const User = () => {
                     Welcome back
 
                 </h1>
-                <Button className={"edit-button"} btnText={"Edit Name"} ></Button>
+                <Button className="edit-button" btnText="Edit Name" />
             </div>
             <h2 className="sr-only">Accounts</h2>
             {Accounts.map((account, index) => (
                 <Account
-                    key={"account" + index}
+                    key={`account-${index}`}
                     title={account.title}
                     amount={account.amount}
                     description={account.description}

@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
-import Button from "../Button/Button";
-
-const Account = ({ title, amount, description }) => {
+import Button from "../Button/Button.js";
+import "./Account.scss"
+function Account({ title, amount, description }) {
     return (
         <section className="account">
             <div className="account-content-wrapper">
@@ -10,11 +10,12 @@ const Account = ({ title, amount, description }) => {
                 <p className="account-amount-description">{description}</p>
             </div>
             <div className="account-content-wrapper cta">
-                <Button className={"transaction-button"} btnText={"View transactions"}></Button>
+                <Button className="transaction-button" btnText="View transactions" />
             </div>
         </section>
     );
 };
+
 Account.propTypes = {
     title: PropTypes.string.isRequired,
     amount: PropTypes.string.isRequired,

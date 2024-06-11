@@ -1,7 +1,7 @@
 import React from 'react';
 import './Banner.scss';
 
-const Banner = () => {
+function Banner() {
     return (
         <div className="hero">
             <section className="hero-content">
