@@ -1,3 +1,12 @@
+.features {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 920px) {
+        flex-direction: row;
+    }
+}
+
 .feature-item {
     flex: 1;
     padding: 2.5rem;

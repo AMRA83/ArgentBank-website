@@ -1,13 +1,27 @@
-// Appel de la fonction 'configureStore' pour créer un store Redux
-import { configureStore } from '@reduxjs/toolkit';
-import { default as userReducer } from "../reducers/userSlice"
+import { configureStore } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // localStorage par défaut
+import loginSlice from "../loginSlice";
 
-//Configuration du store avec spécification des réducteurs
-export const store = configureStore({
+const persistConfig = {
+    key: 'root',
+    storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, loginSlice.reducer);
+
+export const mainStore = configureStore({
     reducer: {
-        //Nom de la propriété pour permettre de dispatcher dans l'application
-        user: userReducer,
-    }
+        login: persistedReducer
+    },
+    // Configuration du middleware pour éviter les avertissements de sérialisation
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: ["persist/PERSIST", "persist/REHYDRATE", "persist/PAUSE", "persist/PURGE", "persist/REGISTER", "persist/FLUSH"],
+            },
+        }),
 });
 
-export default store;
+
+export const persistor = persistStore(mainStore);

@@ -1,5 +1,8 @@
 .bg-dark {
     background-color: #12002b;
+    height: 734px;
+    display: flex;
+    align-items: baseline;
 
     @media (min-width: 920px) {
         height: 606px;
@@ -9,8 +12,7 @@
 
 
 .sign-in-content {
-    display: flex;
-    flex-direction: column;
+    box-sizing: border-box;
     align-items: center;
     background-color: white;
     width: 300px;
@@ -18,4 +20,6 @@
     margin-top: 0px;
     margin-top: 3rem;
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
 }
