@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function User() {
-    const username = useSelector((state) => state.login.userProfil.userName);
-
+    const username = useSelector((state) => state.login.userProfil.userName); //Accéder à l'état global avec Redux
+    //Navigation avec React Router
     const navigate = useNavigate();
     const handleDisplayEdit = (e) => {
         e.preventDefault();

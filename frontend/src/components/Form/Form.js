@@ -6,20 +6,23 @@ import { loginUser, infoUser } from "../../Redux/loginSlice";
 import { logUser, getUserProfile } from "../../API/api";
 
 export default function Form() {
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    //State local du composant
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
+    //Gestion de la soumission du formulaire 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const userData = await logUser(email, password);
             const token = userData.body.token;
-            await dispatch(loginUser(token));
+            dispatch(loginUser(token));
 
             if (rememberMe) {
                 localStorage.setItem('token', token);
@@ -32,7 +35,7 @@ export default function Form() {
                 lastName: userInfo.body.lastName,
                 userName: userInfo.body.userName
             };
-            await dispatch(infoUser(userInfos));
+            dispatch(infoUser(userInfos));
             navigate("/user");
         } catch (error) {
             console.error("Erreur lors de la connexion:", error);
@@ -40,6 +43,7 @@ export default function Form() {
         }
     };
 
+    // Gestion de la case à cocher "Remember me"
     const handleRememberMe = (e) => {
         setRememberMe(e.target.checked);
     };
